@@ -1,0 +1,29 @@
+* to use:
+
+run the command: repl.sh command to start a lumo (external) repl.
+
+from spacemacs, to connect to this run the function: M-x lumo-repl
+
+do kill it, do: M-x lumo-quit
+
+The script is run with go.sh
+
+* setup spacemacs
+
+Add inf-clojure as an additional package:
+   dotspacemacs-additional-packages '(inf-clojure)
+
+Put the following under the section: user
+(defun dotspacemacs/user-config ()
+  ;; Lumo
+  (defun lumo-repl ()
+    (interactive)
+    (cider-mode)
+    (inf-clojure-minor-mode)
+    (inf-clojure-connect "localhost" 5044))
+
+  (defun lumo-quit ()
+       (interactive)
+       (inf-clojure-quit)
+       (inf-clojure-minor-mode)
+       (cider-mode)))
