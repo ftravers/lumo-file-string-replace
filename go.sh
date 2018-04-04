@@ -2,4 +2,4 @@
 
 set -e
 
-lumo -K -c src -m "dyndns.core" $@
+lumo -K -c src -m "xres.core" $@
